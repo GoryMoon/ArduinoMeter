@@ -27,40 +27,38 @@ int button = 0;
 int oldButton = 0;
 
 void setup(void) {
-  int i;
+	int i;
 
-  pinMode(DIGITAL_IN, INPUT);
-  for (i = DIGITAL_OUT_BEGIN; i <= DIGITAL_OUT_BEGIN + 7; ++i)
-  {
-    pinMode(i, OUTPUT);
-  }
+	pinMode(DIGITAL_IN, INPUT);
+	for (i = DIGITAL_OUT_BEGIN; i <= DIGITAL_OUT_BEGIN + 7; ++i)
+	{
+	pinMode(i, OUTPUT);
+	}
 }
 
 void loop(void) {
-  oldButton = button;
-  button = digitalRead(DIGITAL_IN);
+	oldButton = button;
+	button = digitalRead(DIGITAL_IN);
 
-  if (button == 1 && oldButton != button)
-  {
-    mode = ((mode == 0) ? 1: 0);
-  }
+	if (button == 1 && oldButton != button) {
+		mode = ((mode == 0) ? 1: 0);
+	}
 
-  if (mode == 0)
-  {
-    loopVuMeter();
-  } else {
-    loopBinDisplay();
-  }
+	if (mode == 0) {
+		loopVuMeter();
+	} else {
+		loopBinDisplay();
+	}
 }
 
 int main(void)
 {
-  
-  init();
-  setup();
 
-  SEARDUINO_LOOP()
-    {
-      loop();
-    }
+	init();
+	setup();
+
+	SEARDUINO_LOOP()
+	{
+		loop();
+	}
 }
