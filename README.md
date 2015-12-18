@@ -1,6 +1,7 @@
 ArduinoMeter
 =========
 
+This arduino program was made as an assignment in C programming.
 This arduino program will read the analog input of `A0` on an arduino UNO
 and will either display that as the table below or the input value will be
 outputed as binary on the pins 3-10.
